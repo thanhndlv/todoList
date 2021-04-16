@@ -1,0 +1,35 @@
+<h1>TODO LIST</h1>
+<div class="add-items">
+  <!-- <input
+    type="text"
+    placeholder="What do you need to do today?"
+    class="todo"
+  />
+  <button id="btnAdd" onclick="addData()">Add</button>
+  <button id="btnSearch" onclick="searchData()">Search</button>
+  <p class="notification"></p> -->
+  <div class="input-group">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="What do you need to do today?"
+      aria-label="Recipient's username"
+      aria-describedby="basic-addon2"
+      [(ngModel)]="todo"
+    />
+    <div class="input-group-append">
+      <button class="btn btn-warning px-4" type="button" (click)="searchData()">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+  <p *ngIf="isError">Min length 5 letters</p>
+  <div class="my-2">
+    <button class="btn btn-success px-4" type="button" (click)="addData()">
+      ADD
+    </button>
+  </div>
+  <!-- Hiển thị thông báo sau khi thêm người dùng thành công -->
+<button id="showAlertAddSuccess" class="d-none" [swal]="['Thật tuyệt vời!', 'Bạn đã thêm thành công người dùng mới', 'success']">
+</button>
+</div>

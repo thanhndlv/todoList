@@ -1,0 +1,42 @@
+.table-list thead th:nth-child(1) {
+  width: 8%;
+}
+
+.table-list thead th:nth-child(3) {
+  width: 16%;
+}
+
+.table-list thead th:nth-child(4) {
+  width: 16%;
+}
+
+.table-list thead th:nth-child(5) {
+  width: 20%;
+}
+
+.table-list tbody td {
+  vertical-align: middle;
+}
+
+.table-list tbody td .forEditDel button {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.table-list tbody td .forEditDel button i {
+  font-size: 20px;
+}
+
+.table-list tbody td .forSaveCancel {
+  display: none;
+}
+
+.table-list tbody td .forSaveCancel button {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.table-list tbody td .forSaveCancel button i {
+  font-size: 20px;
+}
+/*# sourceMappingURL=table-list.component.css.map */

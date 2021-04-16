@@ -1,0 +1,14 @@
+.add-items input {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.add-items button {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.add-items button i {
+  font-size: 20px;
+}
+/*# sourceMappingURL=on-input.component.css.map */

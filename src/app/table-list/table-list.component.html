@@ -1,0 +1,113 @@
+<div class="sortList mt-5">
+  <select class="form-control" [(ngModel)]="filter" (change)="sortList()">
+    <option [value]="'all'" selected="selected">All</option>
+    <option [value]="'new'">New</option>
+    <option [value]="'completed'">Completed</option>
+  </select>
+</div>
+<div class="table-list my-2">
+  <table
+    class="table table-bordered"
+    cellpadding="0"
+    cellspacing="0"
+    width="100%"
+    border="0"
+  >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Create date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of todosCopy">
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>
+            <p
+              [ngClass]="item.isCompleted == true ? 'lineThrough mb-0' : 'mb-0'"
+              [style.display]="item.isEdit == true ? 'none' : 'block'"
+            >
+              {{ item.title }}
+            </p>
+            <div
+              class="input-group"
+              [style.display]="item.isEdit == true ? '' : 'none'"
+            >
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                [(ngModel)]="todoEdit"
+              />
+              <ng-container *ngIf="item.isCompleted; else False">
+                <input
+                  type="checkbox"
+                  class="checkTodo ml-1 my-auto"
+                  checked
+                  (click)="unCheck()"
+                />
+              </ng-container>
+              <ng-template #False>
+                <input
+                  type="checkbox"
+                  class="checkTodo ml-1 my-auto"
+                  (click)="checked()"
+                />
+              </ng-template>
+              <p *ngIf="isError">Min length 5 letters</p>
+            </div>
+          </td>
+          <td>{{ item.createdDate | date: "dd/MM/yyyy" }}</td>
+          <td>
+            <div
+              class="forEditDel"
+              [style.display]="item.isEdit == true ? 'none' : 'inline-block'"
+            >
+              <div class="row no-gutters">
+                <div class="col-md-12">
+                  <button
+                    class="btn btn-primary px-4 mr-2"
+                    (click)="editData(item.id)"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </button>
+                  <button
+                    class="btn btn-danger px-4"
+                    (click)="deleteData(item.id)"
+                  >
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="forSaveCancel"
+              [style.display]="item.isEdit == true ? 'inline-block' : 'none'"
+            >
+              <div class="row no-gutters">
+                <div class="col-md-12">
+                  <button
+                    class="btn btn-primary px-4 mr-2"
+                    (click)="updateData(item.id)"
+                  >
+                    <i class="fa fa-save"></i>
+                  </button>
+                  <button
+                    class="btn btn-danger px-4"
+                    (click)="cancelData(item.id)"
+                  >
+                    <i class="fa fa-close"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

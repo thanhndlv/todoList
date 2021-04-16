@@ -1,0 +1,60 @@
+.sortList {
+  select {
+    width: 15%;
+  }
+}
+.table-list {
+  thead {
+    th:nth-child(1) {
+      width: 8%;
+    }
+    th:nth-child(3) {
+      width: 16%;
+    }
+    // th:nth-child(4) {
+    //   width: 16%;
+    // }
+    th:nth-child(4) {
+      width: 20%;
+    }
+  }
+  tbody {
+    td {
+      vertical-align: middle;
+      .lineThrough {
+        text-decoration: line-through;
+      }
+      div {
+        .checkTodo {
+          width: 17px;
+          height: 17px;
+        }
+        p {
+          width: 100%;
+          margin-bottom: 0;
+          color: red;
+          font-size: 13px;
+        }
+      }
+      .forEditDel {
+        button {
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+      .forSaveCancel {
+        display: none;
+        button {
+          -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+          i {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
